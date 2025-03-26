@@ -1,0 +1,51 @@
+/*CSS para deixar mais interessante */
+.map-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 50% auto;
+}
+
+.mapa {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.item {
+  position: absolute; /* Required for positioning with top/left */
+  width: 20px; /* Adjust size as needed */
+  height: 20px;
+  background-color: red; /* Add a visible color */
+  border-radius: 50%; /* Optional: make it circular */
+  z-index: 10; /* Ensure it appears above the map image */
+  cursor: pointer; /* Optional: change cursor on hover */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+.item.active {
+  background-color: #1dd1a1;
+  transform: scale(1.2);
+}
+.item::after {
+  content: attr(data-item);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.item:hover::after {
+  opacity: 1;
+}
